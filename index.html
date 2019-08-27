@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MODELS Conference 2019 Tutorial - Developing Reactive Systems using Statecharts</title>
+<link href="../css/style.css" rel="stylesheet">
+</head>
+<body class="body-container">
+  <div class="primary">
+    <h1>MODELS Conference 2019 Tutorial - Developing Reactive Systems using Statecharts</h1>
+    <p>
+      Statecharts, introduced by Harel in 1987, is used to specify complex, timed, reactive, 
+      autonomous discrete-event systems. It is an extension of Timed Finite State Automata, 
+      adding depth, orthogonality, broadcast communication and history. Its visual representation 
+      is based on higraphs, which combine graphs with Euler diagrams. This representation is most 
+      suited to represent Statechart models, and many tools offer visual editing and simulation support 
+      for the Statecharts formalism. Examples include STATEMATE, RHAPSODY, YAKINDU Statechart Tools, 
+      and STATEFLOW.
+    </p>
+
+    <p>
+      This tutorial introduces Statechart modeling, simulation, testing, and deployment. 
+      We present a general system development method, encoded in a workflow model, which guides developers 
+      that use Statecharts for their system development through the different development steps, 
+      ultimately arriving at a deployed system. We start by introducing the Statecharts language: 
+      its basic concepts (states and transitions) and more advanced ones (hierarchy, orthogonality, 
+      and history). For each concept, we explain the syntax and semantics conceptually, 
+      nd apply it to a running example that is gradually implemented throughout the tutorial. 
+      Simulation and testing activities allow for the user to check the behavior of the system before it is 
+      depl
+      oyed. As a last step, the system is deployed by generating code from the model.
+    </p>    
+    <p>    As a running example, the behavior of a simple timed, autonomous, reactive system is modeled: a traffic light. We start by developing a purely virtual model of the traffic light to simulate and test it. It is then deployed onto two platforms by generating code: one is a virtual application based on Java, the other is based on an Arduino, connected to a physical “plant” consisting of led-lights and push buttons. By doing so, we illustrate how the platform functions (for displaying the state of the system and generating interrupts) can be bound to the Statechart’s execution (by communicating using events).
+    </p>    
+    <p>    We cover a number of advanced topic in this tutorial as well. The example is further developed by demonstrating how multiple Statechart models can be orchestrated: multiple instances of the traffic light can communicate with each other to implement a safe intersection. Additionally, we explore Statechart variants, since Statecharts is not a single language. In fact, it represents a set of families whose semantics can be configured to suit the need of the application. We explore this family and point out where the “variation points” are, how these affect the execution of a Statechart model, and how they can be implemented in a simulator or executor.
+    </p>    
+    <p>    Throughout the tutorial, we use YAKINDU as the integrated development environment for Statecharts. It supports all activities for Statecharts modeling, from visually specifying the system, simulating and testing it, and deploying it by generating code.
+    </p> 
+ 
+  </div>
+</body>
+</html>
