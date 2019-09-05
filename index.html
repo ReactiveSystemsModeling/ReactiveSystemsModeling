@@ -1,41 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>MODELS Conference 2019 Tutorial - Developing Reactive Systems using Statecharts</title>
-<link href="./css/style.css" rel="stylesheet">
-</head>
-<body class="body-container">
-  <div class="primary">
-    <h1>MODELS Conference 2019 Tutorial - Developing Reactive Systems using Statecharts</h1>
-    <p>
-      Statecharts, introduced by Harel in 1987, is used to specify complex, timed, reactive, 
-      autonomous discrete-event systems. It is an extension of Timed Finite State Automata, 
-      adding depth, orthogonality, broadcast communication and history. Its visual representation 
-      is based on higraphs, which combine graphs with Euler diagrams. This representation is most 
-      suited to represent Statechart models, and many tools offer visual editing and simulation support 
-      for the Statecharts formalism. Examples include STATEMATE, RHAPSODY, YAKINDU Statechart Tools, 
-      and STATEFLOW.
-    </p>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./css/style.css" type="text/css"/>
 
-    <p>
-      This tutorial introduces Statechart modeling, simulation, testing, and deployment. 
-      We present a general system development method, encoded in a workflow model, which guides developers 
-      that use Statecharts for their system development through the different development steps, 
-      ultimately arriving at a deployed system. We start by introducing the Statecharts language: 
-      its basic concepts (states and transitions) and more advanced ones (hierarchy, orthogonality, 
-      and history). For each concept, we explain the syntax and semantics conceptually, 
-      nd apply it to a running example that is gradually implemented throughout the tutorial. 
-      Simulation and testing activities allow for the user to check the behavior of the system before it is 
-      depl
-      oyed. As a last step, the system is deployed by generating code from the model.
-    </p>    
-    <p>    As a running example, the behavior of a simple timed, autonomous, reactive system is modeled: a traffic light. We start by developing a purely virtual model of the traffic light to simulate and test it. It is then deployed onto two platforms by generating code: one is a virtual application based on Java, the other is based on an Arduino, connected to a physical “plant” consisting of led-lights and push buttons. By doing so, we illustrate how the platform functions (for displaying the state of the system and generating interrupts) can be bound to the Statechart’s execution (by communicating using events).
-    </p>    
-    <p>    We cover a number of advanced topic in this tutorial as well. The example is further developed by demonstrating how multiple Statechart models can be orchestrated: multiple instances of the traffic light can communicate with each other to implement a safe intersection. Additionally, we explore Statechart variants, since Statecharts is not a single language. In fact, it represents a set of families whose semantics can be configured to suit the need of the application. We explore this family and point out where the “variation points” are, how these affect the execution of a Statechart model, and how they can be implemented in a simulator or executor.
-    </p>    
-    <p>    Throughout the tutorial, we use YAKINDU as the integrated development environment for Statecharts. It supports all activities for Statecharts modeling, from visually specifying the system, simulating and testing it, and deploying it by generating code.
-    </p> 
+  <title>MODELS Conference 2019 Tutorial - Developing Reactive Systems using Statecharts</title>
+</head>
+
+<body class="body-container">
+    <script type="text/javascript">stLight.options({publisher:
+			"c3604e15-a547-4caf-ad59-ffb9279eceb8", doNotHash: true,
+			doNotCopy: true, hashAddressBar: false});
+		</script>
+
+  <div class="container-fluid">
+
+
+    	<!-- CSS trap for linux users with improper libwebkit -->
+		<div class="row" id="csstrap" style="
+      margin: auto; 
+      background: white;
+      border: 10px solid #ed829b;
+      text-align: center; 
+      border-radius: 20px;
+      ">
+      <h3>Attention</h3>
+      <p>
+        If this page is not displayed correctly<br/>
+        most likely you are missing the correct version of<br/>
+        <u>libwebkitgtk</u>.
+      </p>
+    </div>
+
+    <!-- BEGIN HEADER ROW -->
+		<!--div class="row" id="header">
+      <div id="logo" style="margin-top: 5px">
+        <h2>Developing Reactive Systems using Statecharts</h2> 
+        <h2>Get a grip on statecharts - join our hands-on tutorial @ MODELS Conference 2019</h2>
+      </div>
+    </div-->
+    <!-- END HEADER ROW -->
+
+    <div class="jumbotron text-center">
+        <h1>Developing Reactive Systems using Statecharts</h1>
+        <p>Get a grip on statecharts - join our hands-on tutorial @ MODELS Conference 2019 !</p> 
+    </div>
+
+    <!-- BEGIN FIRST CONTENT ROW -->
+    <div class="row" id="content1">
+
+        <!-- BEGIN LEFT COLUMN -->
+        <div class="col-sm-6">
+
+          <!-- BEGIN GETTING STARTED -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">What</h3>
+            </div>
+            <div class="panel-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-12">
+                      <p>
+                          Statecharts, introduced by Harel in 1987, is used to specify complex, timed, reactive, 
+                          autonomous discrete-event systems. It is an extension of Timed Finite State Automata, 
+                          adding depth, orthogonality, broadcast communication and history. Its visual representation 
+                          is based on higraphs, which combine graphs with Euler diagrams. This representation is most 
+                          suited to represent Statechart models, and many tools offer visual editing and simulation support 
+                          for the Statecharts formalism. Examples include STATEMATE, RHAPSODY, YAKINDU Statechart Tools, 
+                          and STATEFLOW.
+                        </p>
+                    
+                        <p>
+                          This tutorial introduces Statechart modeling, simulation, testing, and deployment. 
+                          We present a general system development method, encoded in a workflow model, which guides developers 
+                          that use Statecharts for their system development through the different development steps, 
+                          ultimately arriving at a deployed system. We start by introducing the Statecharts language: 
+                          its basic concepts (states and transitions) and more advanced ones (hierarchy, orthogonality, 
+                          and history). For each concept, we explain the syntax and semantics conceptually, 
+                          nd apply it to a running example that is gradually implemented throughout the tutorial. 
+                          Simulation and testing activities allow for the user to check the behavior of the system before it is 
+                          depl
+                          oyed. As a last step, the system is deployed by generating code from the model.
+                        </p>    
+                        <p>
+                          As a running example, the behavior of a simple timed, autonomous, reactive system 
+                          is modeled: a traffic light. We start by developing a purely virtual model of the 
+                          traffic light to simulate and test it. It is then deployed onto two platforms by 
+                          generating code: one is a virtual application based on Java, the other is based on 
+                          an Arduino, connected to a physical “plant” consisting of led-lights and push 
+                          buttons. By doing so, we illustrate how the platform functions (for displaying the 
+                          state of the system and generating interrupts) can be bound to the Statechart’s 
+                          execution (by communicating using events).
+                        </p>    
+                        <p>
+                          We cover a number of advanced topic in this tutorial as well. The example is further 
+                          developed by demonstrating how multiple Statechart models can be orchestrated: 
+                          multiple instances of the traffic light can communicate with each other to implement 
+                          a safe intersection. Additionally, we explore Statechart variants, since Statecharts 
+                          is not a single language. In fact, it represents a set of families whose semantics 
+                          can be configured to suit the need of the application. We explore this family and 
+                          point out where the “variation points” are, how these affect the execution of a 
+                          Statechart model, and how they can be implemented in a simulator or executor.
+                        </p>    
+                        <p>
+                          Throughout the tutorial, we use YAKINDU as the integrated development environment 
+                          for Statecharts. It supports all activities for Statecharts modeling, from visually 
+                          specifying the system, simulating and testing it, and deploying it by generating code.
+                        </p>                     
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END GETTING STARTED -->
+
+        </div>
+        <!-- END LEFT COLUMN -->
+
+        <!-- BEGIN RIGHT COLUMN -->
+        <div class="col-sm-6">
+          <!-- BEGIN TOPICS -->
+          <div class="container-fluid">
+              <div class="row" id="resources">
+                  <div class="col-sm-12">
+                      <a class="link-box-link">
+                          <ul class="list-group">
+                              <li class="list-group-item">
+                                  <div class="media link-box link"
+                                    onclick="location.href='https://modelsconf19.org'">
+                                    <div class="media-left">
+                                      <img class="media-object pull-left" src="img/Logo_MODELS_2019.png" style="height:100px"
+                                        alt="MODELS 2019" />
+                                    </div>
+                                    <div class="media-body">
+                                      <h4 class="media-heading">See you on Monday, September 16th from 9am to 5:30pm in Munich&nbsp;…</h4>
+                                      Visit the conference website&nbsp;…
+                                    </div>
+                                  </div>
+                              </li>
+                              <li class="list-group-item">
+                                <div class="media link-box link"
+                                  onclick="location.href='https://github.com/ReactiveSystemsModeling/statecharts-tutorial'">
+                                  <div class="media-left">
+                                    <img class="media-object pull-left" src="img/Logo_github.png" style="height:100px"
+                                      alt="github" />
+                                  </div>
+                                  <div class="media-body">
+                                    <h4 class="media-heading">Get the example projects on github soon&nbsp;…</h4>
+                                  </div>
+                                </div>
+                              </li>
+                          </ul>
+                      </a>    
+
+    
+                  </div>
+              </div>
+    
+              <div class="row" id="who">
+                <div class="col-sm-12">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">Who</h3>
+                    </div>
+                    <div class="panel-body">
+  
+                      <div class="row">
+                          <div class="col-sm-4">
+                              <div class="media">
+                                <div class="media-left">
+                                    <img class="media-object pull-left" src="img/presenter_simon.jpg" style="height:100px"
+                                      alt="Simon" />
+                                </div>
+                                <div class="media-body">
+                                    <h4>Simon Van Mierlo</h4>
+                                    University of Antwerp, Belgium
+                                </div>
+                              </div>                          
+                          </div>
+                          <div class="col-sm-4">
+                              <div class="media">
+                                  <div class="media-left">
+                                      <img class="media-object pull-left" src="img/presenter_axel.jpg" style="height:100px"
+                                        alt="Simon" />
+                                  </div>
+                                    <div class="media-body">
+                                      <h4>Axel Terfloth</h4>
+                                      itemis AG, Germany
+                                  </div>
+                                </div>                          
+                          </div>
+                          <div class="col-sm-4">
+                              <div class="media">
+                                  <div class="media-left">
+                                      <img class="media-object pull-left" src="img/presenter_hans.jpg" style="height:100px"
+                                        alt="Simon" />
+                                  </div>
+                                    <div class="media-body">
+                                      <h4>Hans Vangheluwe</h4>
+                                      University of Antwerp, Belgium
+                                  </div>
+                                </div>                          
+                            </span>
+                          </div>   
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+          </div>
+          <!-- END TOPICS -->
+        </div>
+        <!-- END LEFT COLUMN -->
+
+      </div>
+      <!-- END FIRST CONTENT ROW -->
+      
+    
  
   </div>
 </body>
